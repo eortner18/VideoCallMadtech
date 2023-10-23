@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
+    <script src="./lame.all.js"></script>
+  </head>
+  <body>
+    <h1>Twilio Serverless Video Calling</h1>
+    <form>
+      Name: <input type="text" id="username">
+      <button id="join_leave">Join call</button>
+    </form>
+    <p id="count"></p>
+    <div id="container" class="container">
+      <div id="local" class="participant">
+        <div></div>
+        <div>Me</div>
+      </div>
+      <!-- more participants will be added dynamically here -->
+    </div>
+    <ul id="recordings"></ul>
+
+    <!-- <script src="/node_modules/lamejs/lame.all.js"></script> -->
+        <script src="https://sdk.twilio.com/js/video/releases/2.20.1/twilio-video.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
