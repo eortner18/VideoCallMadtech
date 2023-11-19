@@ -4248,11 +4248,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Schule\\5B\\dip\\Speechular\\WpfApp1\\WpfApp1.csproj",
+      "projectUniqueName": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\WpfApp1\\WpfApp1.csproj",
       "projectName": "WpfApp1",
-      "projectPath": "D:\\Schule\\5B\\dip\\Speechular\\WpfApp1\\WpfApp1.csproj",
+      "projectPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\WpfApp1\\WpfApp1.csproj",
       "packagesPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\",
-      "outputPath": "D:\\Schule\\5B\\dip\\Speechular\\WpfApp1\\obj\\",
+      "outputPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\WpfApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4274,8 +4274,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "D:\\Schule\\5B\\dip\\Speechular\\MadTechLib\\MadTechLib.csproj": {
-              "projectPath": "D:\\Schule\\5B\\dip\\Speechular\\MadTechLib\\MadTechLib.csproj"
+            "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj": {
+              "projectPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj"
             }
           }
         }

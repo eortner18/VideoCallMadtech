@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F+jJjqdCMqQ8uFvejo1WyzH0NSWGgH2C7H8tO8qdrnChLE/beAg+Hbhe/VUpjVGMZ22c2jSKQdDWNtMMt8owmQ==",
+  "dgSpecHash": "9ipsQQ946gj5tvArjDeZFMxMOX0ju4/xHJ9XhkPTtVtcXRIQNK63TpjeqBowwvrzXYcRTXHrAi88zbYvmgQtGA==",
   "success": true,
-  "projectFilePath": "D:\\Schule\\5B\\dip\\Speechular\\MadTechLib\\MadTechLib.csproj",
+  "projectFilePath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
