@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="grid">
+    <div class="row">
+    <div class="d-flex justify-content-center">
+    
+        <div class="form-group">
+            <div class="d-flex flex-row bd-highlight mb-3">
+    
+                <div class="p-2 bd-highlight">
+                        <div class="form-group">
+                            <input [(ngModel)]="userName" placeholder="Username/mail" type="text" class="form-control m-3">
+                            <input [(ngModel)]="password" placeholder="Password" type="password" class="form-control m-3">
+                        </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="d-flex justify-content-center m-3">
+            <button (click)="Login()" class="btn btn-primary m-3">Login</button>
+        </div>
+    
+    </div>
+    
+    
+</div>
+</div>
+
+

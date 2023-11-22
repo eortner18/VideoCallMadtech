@@ -8,21 +8,28 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { RegisterComponent } from './register/register.component';
 import { ViedoRoomComponent } from './viedo-room/viedo-room.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { envrionment } from './envrionments/environment';
+import { BASE_PATH } from './swagger';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorPageComponent,
     LoginComponent,
-    MenuComponent,
     RegisterComponent,
-    ViedoRoomComponent
+    MenuComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {provide:BASE_PATH,useValue:envrionment.apiRoot}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
