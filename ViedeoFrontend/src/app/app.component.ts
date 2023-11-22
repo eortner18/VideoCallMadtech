@@ -11,6 +11,6 @@ export class AppComponent {
   title = 'ViedeoFrontend';
 
   constructor(public myData:DataServiceService,twillioService:TwillioService){
-    console.log(myData.isLoggedIn());
+    // console.log(myData.isLoggedIn());
   }
 }

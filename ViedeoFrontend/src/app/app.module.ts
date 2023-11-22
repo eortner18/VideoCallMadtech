@@ -8,10 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { RegisterComponent } from './register/register.component';
 import { ViedoRoomComponent } from './viedo-room/viedo-room.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { envrionment } from './envrionments/environment';
 import { BASE_PATH } from './swagger';
+import { WebcamModule } from 'ngx-webcam';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { BASE_PATH } from './swagger';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    WebcamModule, 
+    ReactiveFormsModule
   ],
   providers: [
     {provide:BASE_PATH,useValue:envrionment.apiRoot}
