@@ -31,8 +31,25 @@ namespace Diplomarbeit.Services
         {
 
 
-            _context.Users.RemoveRange();
-            _context.LanguageCodes.RemoveRange();
+            foreach (var item in _context.Users)
+            {
+                _context.Users.Remove(item);
+            };
+            foreach (var item in _context.LanguageCodes)
+            {
+                _context.LanguageCodes.Remove(item);
+            };
+
+            _context.Users.Add(new User
+            {
+                Email = "DaurerM190019@sus.htl-grieskirchen.at",
+                Username = "Daurer",
+                FirstName = "Michael",
+                LastName = "Daurer",
+                Password = "123",
+                PreferredLanguage = "en-US",
+                UserToken = "4a987abfde63ba9676662e26cc29da64",
+            });
 
             _context.LanguageCodes.Add(new LanguageCode
             {

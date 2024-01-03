@@ -32,14 +32,13 @@ namespace WpfApp1
         {
             try
             {
-                TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "f235a3caa04aadf48c9b5c53ce6d56b2");
+        //        TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "4a987abfde63ba9676662e26cc29da64");
 
-                var sid = AccountResource.Fetch(pathSid: "ACb384c79bf65f369fde65c47460944e8d");
+        //        var account = AccountResource.Update(
+        //    status: AccountResource.StatusEnum.Closed,
+        //    pathSid: "AC78367b661b4e59edee1dae75ed85069e"
+        //);
 
-                var account = AccountResource.Update(
-            status: AccountResource.StatusEnum.Closed,
-            pathSid: sid.Sid
-        );
 
 
                 //TwilioClient.Init("ACb384c79bf65f369fde65c47460944e8d", "5e42bb265e61d3786dfcb5f28c974333");
@@ -49,11 +48,29 @@ namespace WpfApp1
                 //int count = RoomResource.Read().Count();
                 //Console.WriteLine(count);
 
-                var db = new MadTechContext();
-                db.Database.EnsureCreated();
-                Title = db.LanguageCodes.Count().ToString();
+            //    var db = new MadTechContext();
+            //    //db.Database.EnsureDeleted();
+            //    //db.Database.EnsureCreated();
+            //Title = db.Users.Count().ToString();
 
             }catch(Exception ex)
+            {
+                Title = ex.Message;
+            }
+        }
+
+        private void Loeschen(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "4a987abfde63ba9676662e26cc29da64");
+
+                var account = AccountResource.Update(
+            status: AccountResource.StatusEnum.Closed,
+            pathSid: myText.Text
+        );
+            }
+            catch (Exception ex)
             {
                 Title = ex.Message;
             }

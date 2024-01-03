@@ -8,6 +8,10 @@
         Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <StackPanel>
+            <TextBox x:Name="myText"></TextBox>
+            <Button Click="Loeschen">Loeschen</Button>
+        </StackPanel>
+        
     </Grid>
 </Window>

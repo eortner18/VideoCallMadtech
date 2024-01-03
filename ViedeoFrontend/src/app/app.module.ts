@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { envrionment } from './envrionments/environment';
 import { BASE_PATH } from './swagger';
 import { WebcamModule } from 'ngx-webcam';
+import { withComponentInputBinding } from '@angular/router';
 
 @NgModule({
   declarations: [
