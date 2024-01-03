@@ -21,15 +21,16 @@ export class LoginComponent {
   
   Login():void{
     if(this.userName.trim() != "" && this.password.trim()!=""){
-      this.router.navigateByUrl("menu");
+      // this.router.navigateByUrl("menu");
   
-      // this.login = {userName:this.userName,password: this.password};
-      // this.twilioService.madTechGetUserLoginGet(this.login).subscribe(x=>{
-      //   if(x!= null){
-      //     this.dataService.user.update(y=>x);
-      //     this.router.navigateByUrl("menu");
-      //   }
-      // })
+      this.login = {userName:this.userName,password: this.password};
+      this.twilioService.madTechGetUserLoginPost(this.login!).subscribe(x=>{
+        console.log(x);
+        if(x!= null){
+          this.dataService.user.set(x);
+          this.router.navigateByUrl("menu");
+        }
+      })
     }
   }
 }

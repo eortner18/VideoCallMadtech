@@ -6,14 +6,6 @@ GET {{baseUrl}}/MadTech/GetLanguages
 #####
 GET {{baseUrl}}/MadTech/GetRooms
 #####
-GET {{baseUrl}}/MadTech/GetUserLogin
-Content-type: application/json
-
-{
-   "userName": "abc",
-   "password": "abc"
-}
-#####
 GET {{baseUrl}}/MadTech/GetUsers
 #####
 POST {{baseUrl}}/MadTech/AddUser
@@ -29,6 +21,26 @@ Content-type: application/json
 }
 #####
 POST {{baseUrl}}/MadTech/CreateRoom?RoomName=abc
+Content-type: application/json
+
+{
+   "id": 1,
+   "userName": "abc",
+   "twilSid": "abc",
+   "authTkn": "abc"
+}
+#####
+POST {{baseUrl}}/MadTech/GetUserLogin
+Content-type: application/json
+
+{
+   "userName": "abc",
+   "password": "abc"
+}
+#####
+POST {{baseUrl}}/MadTech/JoinRoom?RoomName=abc
+#####
+POST {{baseUrl}}/MadTech/LogOut
 Content-type: application/json
 
 {

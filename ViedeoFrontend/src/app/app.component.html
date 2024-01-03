@@ -3,7 +3,7 @@
   <form  class="d-flex text-nowrap">
       <a [hidden]="myData.isLoggedIn()" class="navbar-brand mr-sm-2" href="http://localhost:4200/login">Login</a>
       <a [hidden]="myData.isLoggedIn()" class="navbar-brand mr-sm-2" href="http://localhost:4200/register">Register</a>
-      <button [hidden]="!myData.isLoggedIn()" class="navbar-brand mr-sm-2" href="http://localhost:4200/login">Logout</button>
+      <button [hidden]="!myData.isLoggedIn()" class="navbar-brand mr-sm-2" (click)="LogOut()">Logout</button>
     </form>
     
 </nav>

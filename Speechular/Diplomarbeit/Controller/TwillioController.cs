@@ -18,9 +18,15 @@ namespace Diplomarbeit.Controller
 
         [HttpPost]
         [Route("MadTech/CreateRoom")]
-        public void createRoom(UserDto user,string RoomName)
+        public string createRoom(UserDto user,string RoomName)
         {
-             _service.CreateRoom(user, RoomName);
+             return _service.CreateRoom(user, RoomName);
+        }
+        [HttpPost]
+        [Route("MadTech/JoinRoom")]
+        public string joinRoom(string RoomName)
+        {
+            return _service.JoinRoom(RoomName);
         }
 
         [HttpGet]
@@ -44,7 +50,7 @@ namespace Diplomarbeit.Controller
             return _service.Languages();
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("MadTech/GetUserLogin")]
         public UserDto GetUserLogin(Login login)
         {
@@ -56,6 +62,13 @@ namespace Diplomarbeit.Controller
         public void AddUser(Register register)
         {
             _service.AddUser(register);
+        }
+
+        [HttpPost]
+        [Route("MadTech/LogOut")]
+        public void LogOutUser(UserDto user)
+        {
+            _service.LogOut(user);
         }
     }
 }

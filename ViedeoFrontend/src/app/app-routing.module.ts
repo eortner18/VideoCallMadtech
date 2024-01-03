@@ -7,11 +7,11 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { ViedoRoomComponent } from './viedo-room/viedo-room.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/video-room',pathMatch:'full'},
+  {path:'',redirectTo:'/register',pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'menu',component:MenuComponent},
-  {path:'video-room',component:ViedoRoomComponent},
+  {path:'video-room/:roomName',component:ViedoRoomComponent},
   {path:'**',component:ErrorPageComponent},
 ];
 
