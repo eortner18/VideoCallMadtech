@@ -21,7 +21,7 @@ namespace Diplomarbeit.Services
 
         public MyTwillioService(MadTechContext context)
         {
-            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "4a987abfde63ba9676662e26cc29da64");
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
             _context = context;
         }
 
@@ -61,7 +61,7 @@ namespace Diplomarbeit.Services
 
         public List<TwilioRooms> GetRooms()
         {
-            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "4a987abfde63ba9676662e26cc29da64");
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
 
             //var room = RoomResource.Create(uniqueName: "MyRoom", emptyRoomTimeout: 60);
             Console.WriteLine(RoomResource.Read().Count());
@@ -110,11 +110,11 @@ namespace Diplomarbeit.Services
             Console.WriteLine("login");
             if(_context.Users.Where(x => x.Username == login.UserName || x.Email == login.UserName).Where(x => x.Password == login.Password).Count() > 0)
             {
-                TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "4a987abfde63ba9676662e26cc29da64");
+                TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
 
                     UserDto user = _context.Users.Where(x => x.Username == login.UserName || x.Email == login.UserName).Where(x => x.Password == login.Password).Select(x => new UserDto
                     {
-                        AuthTkn = "4a987abfde63ba9676662e26cc29da64",
+                        AuthTkn = "d3e145fe329b5e1630fc243ebeb557a0",
                         UserName = login.UserName,
                         TwilSid = "ACcc68c5f3aed6ca9e4509cff2536c5977"
                     }).FirstOrDefault();
@@ -130,7 +130,7 @@ namespace Diplomarbeit.Services
 
         public void LogOut(UserDto user)
         {
-            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "4a987abfde63ba9676662e26cc29da64");
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
 
             var account = AccountResource.Update(
             status: AccountResource.StatusEnum.Closed,

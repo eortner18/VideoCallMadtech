@@ -17,7 +17,7 @@ export class ViedoRoomComponent {
   // error: Error | undefined;
   // videoRef:any;
   // mySrc:MediaStream|undefined;
-  @Input() roomName:string|undefined;
+  @Input() id:string = '';
 
   router = Inject(Router);
 
@@ -33,7 +33,7 @@ const video = document.getElementById('local-media');
 
 track.then(t => video?.append(t.attach()));
 // this.startLocalVideo();
-
+console.log(this.id);
 this.JoinRoom();
   
 }
@@ -43,8 +43,8 @@ async JoinRoom(): Promise<void>{
     // const localTracks = await createLocalTracks({audio: true, video: true});
     if(this.dataService.token === ""){
       console.log('gast');
-      console.log(this.roomName!.toString());
-      this.twil.madTechJoinRoomPost(this.roomName!.toString()).subscribe(async x=>{
+      console.log(this.id!.toString());
+      this.twil.madTechJoinRoomPost(this.id!.toString()).subscribe(async x=>{
         console.log("room:");
       const room = await connect(x,{
         networkQuality: {
@@ -59,7 +59,7 @@ async JoinRoom(): Promise<void>{
       });
     }
     else{
-      console.log(this.roomName);
+      console.log(this.id);
       console.log("room:");
       const room = await connect(this.dataService.token.toString(),{
         networkQuality: {
@@ -123,11 +123,13 @@ participantConnected(participant:Participant):void{
       this.trackSubscribed(tracksDiv,publication.kind);
     }
   });
-  participant.on('trackSubscribed', track => this.trackSubscribed(tracksDiv, track));
+  console.log('track');
+  participant.on('trackSubscribed', track => tracksDiv.appendChild(track.attach())
+  );
 
 }
 
-trackSubscribed (div:any,track:any):void{
+ trackSubscribed (div:any,track:any):void{
 div.appendChild(track.attach());
 
 }

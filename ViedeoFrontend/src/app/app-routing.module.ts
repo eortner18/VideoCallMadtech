@@ -11,12 +11,12 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'menu',component:MenuComponent},
-  {path:'video-room/:roomName',component:ViedoRoomComponent},
+  {path:'video-room/:id',component:ViedoRoomComponent},
   {path:'**',component:ErrorPageComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{bindToComponentInputs:true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
