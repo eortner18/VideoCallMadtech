@@ -18,15 +18,22 @@ namespace Diplomarbeit.Controller
 
         [HttpPost]
         [Route("MadTech/CreateRoom")]
-        public string createRoom(UserDto user,string RoomName)
+        public CreateRoomDto createRoom(UserDto user,string mailTo)
         {
-             return _service.CreateRoom(user, RoomName);
+             return _service.CreateRoom(user,mailTo);
         }
         [HttpPost]
         [Route("MadTech/JoinRoom")]
-        public string joinRoom(string RoomName)
+        public string joinRoom(string RoomName,string username)
         {
-            return _service.JoinRoom(RoomName);
+            return _service.JoinRoom(RoomName, username);
+        }
+
+        [HttpPost]
+        [Route("MadTech/JoinRoomToken")]
+        public string joinRoomToken(string RoomName, string username,string AccesToken)
+        {
+            return _service.JoinRoomAccesToken(RoomName, username,AccesToken);
         }
 
         [HttpGet]

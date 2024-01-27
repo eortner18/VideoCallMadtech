@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, Input, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Input, OnDestroy, OnInit, PLATFORM_ID, ViewChild, inject } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
 import { LocalTrack, Participant, Track, TrackPublication, connect, createLocalAudioTrack, createLocalTracks, createLocalVideoTrack } from 'twilio-video';
 import { Router } from '@angular/router';
@@ -17,9 +17,11 @@ export class ViedoRoomComponent {
   // error: Error | undefined;
   // videoRef:any;
   // mySrc:MediaStream|undefined;
-  @Input() id:string = '';
+  @Input() roomName:string = '';
+  @Input() accessToken:string = '';
 
-  router = Inject(Router);
+
+  router = inject(Router);
 
   constructor(public dataService:DataServiceService,public twil:TwillioService){}
 
@@ -28,12 +30,8 @@ export class ViedoRoomComponent {
 // this.videoRef = document.getElementById('video');
 // console.log(this.videoRef);
 // this.setUpCamera();
-const track = createLocalVideoTrack();
-const video = document.getElementById('local-media');
 
-track.then(t => video?.append(t.attach()));
 // this.startLocalVideo();
-console.log(this.id);
 this.JoinRoom();
   
 }
@@ -41,25 +39,20 @@ this.JoinRoom();
 async JoinRoom(): Promise<void>{
   try{
     // const localTracks = await createLocalTracks({audio: true, video: true});
-    if(this.dataService.token === ""){
+    if(this.dataService.user() === null){
       console.log('gast');
-      console.log(this.id!.toString());
-      this.twil.madTechJoinRoomPost(this.id!.toString()).subscribe(async x=>{
-        console.log("room:");
-      const room = await connect(x,{
-        networkQuality: {
-          local: 2,
-          remote: 2
-      },
-      });
-      console.log(room);
-    room.participants.forEach(this.participantConnected);
-    room.on('participantConnected',this.participantConnected);
-    room.on('participantDisconnected', this.participantDisconnected);
-      });
+      this.dataService.roomName = this.roomName;
+        this.dataService.accessToken = this.accessToken;
+        console.log('no username');
+        
+      this.GastJoinRoom();
+      
     }
     else{
-      console.log(this.id);
+      const track = createLocalVideoTrack();
+const video = document.getElementById('local-media');
+
+track.then(t => video?.append(t.attach()));
       console.log("room:");
       const room = await connect(this.dataService.token.toString(),{
         networkQuality: {
@@ -115,6 +108,8 @@ participantConnected(participant:Participant):void{
   const tracksDiv = document.createElement('div');
   tracksDiv.setAttribute('id', 'video-div');
 
+  
+
   participantDiv.appendChild(tracksDiv);
   div?.appendChild(participantDiv);
 
@@ -139,6 +134,34 @@ participantDisconnected(participant:Participant):void{
   document.getElementById(participant.sid)?.remove();
 }
 
+GastJoinRoom():void{
+  if(this.dataService.username.trim().length>0){
+    const track = createLocalVideoTrack();
+const video = document.getElementById('local-media');
+
+track.then(t => video?.append(t.attach()));
+    this.twil.madTechJoinRoomPost(this.dataService.roomName,this.dataService.username).subscribe(async x=>{
+      if(x==null){
+        
+        this.router.navigateByUrl('error-page');
+      }
+      console.log("room:");
+    const room = await connect(x,{
+      networkQuality: {
+        local: 2,
+        remote: 2
+    },
+    });
+    console.log(room);
+  room.participants.forEach(this.participantConnected);
+  room.on('participantConnected',this.participantConnected);
+  room.on('participantDisconnected', this.participantDisconnected);
+    });
+  }
+  else{
+    this.router.navigateByUrl('enter-link-username');
+  }
+}
 
 
 }

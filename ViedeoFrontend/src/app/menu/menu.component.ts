@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class MenuComponent {
   roomNames:TwilioRooms[]=[];
   accessToken:string = "";
-  roomName:string = "";
+  mailInvite:string = "";
   router = inject(Router);
 
   
@@ -20,17 +20,20 @@ export class MenuComponent {
   }
   
   Join(roomName:string):void{
-  
+    this.twilioService.madTechJoinRoomTokenPost(roomName,this.dataService.user()?.userName!,this.accessToken).subscribe(x=>{
+      if(x!= null){
+        this.dataService.token = x;
+        this.router.navigateByUrl(`video-room/${roomName}/${x}`);
+      }
+    })
   }
 
   CreateRoom():void{
-    console.log(this.roomName);
     console.log(this.dataService.user()!);
-    this.dataService.roomName = this.roomName;
-    this.twilioService.madTechCreateRoomPost(this.roomName,this.dataService.user()!).subscribe(x=>{
-      this.dataService.token = x;
+    this.twilioService.madTechCreateRoomPost(this.mailInvite,this.dataService.user()!).subscribe(x=>{
+      this.dataService.token = x.jwtToken!;
       console.log(x);
-      this.router.navigateByUrl(`video-room/${this.roomName}`);
+      this.router.navigateByUrl(`video-room/${x.roomName!}/${x.accessToken!}`);
     });
   }
 }

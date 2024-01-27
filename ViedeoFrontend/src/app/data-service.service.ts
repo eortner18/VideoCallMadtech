@@ -13,7 +13,11 @@ export class DataServiceService {
 
   token:string = "";
 
+  username:string = "";
+
   room:Room|null = null;
+
+  accessToken:string = "";
 
   roomName:string = "";
 

@@ -20,12 +20,13 @@ Content-type: application/json
    "lastName": "abc"
 }
 #####
-POST {{baseUrl}}/MadTech/CreateRoom?RoomName=abc
+POST {{baseUrl}}/MadTech/CreateRoom?mailTo=abc
 Content-type: application/json
 
 {
    "id": 1,
    "userName": "abc",
+   "mail": "abc",
    "twilSid": "abc",
    "authTkn": "abc"
 }
@@ -38,7 +39,9 @@ Content-type: application/json
    "password": "abc"
 }
 #####
-POST {{baseUrl}}/MadTech/JoinRoom?RoomName=abc
+POST {{baseUrl}}/MadTech/JoinRoom?RoomName=abc&username=abc
+#####
+POST {{baseUrl}}/MadTech/JoinRoomToken?RoomName=abc&username=abc&AccesToken=abc
 #####
 POST {{baseUrl}}/MadTech/LogOut
 Content-type: application/json
@@ -46,6 +49,7 @@ Content-type: application/json
 {
    "id": 1,
    "userName": "abc",
+   "mail": "abc",
    "twilSid": "abc",
    "authTkn": "abc"
 }
