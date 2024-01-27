@@ -42,7 +42,7 @@ namespace Diplomarbeit.Services
 
             _context.Users.Add(new User
             {
-                Email = "DaurerM190019@sus.htl-grieskirchen.at",
+                Email = "daurer.michael1@gmail.com",
                 Username = "Daurer",
                 FirstName = "Michael",
                 LastName = "Daurer",

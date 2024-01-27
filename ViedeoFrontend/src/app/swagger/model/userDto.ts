@@ -14,6 +14,7 @@
 export interface UserDto { 
     id?: number;
     userName?: string | null;
+    mail?: string | null;
     twilSid?: string | null;
     authTkn?: string | null;
 }

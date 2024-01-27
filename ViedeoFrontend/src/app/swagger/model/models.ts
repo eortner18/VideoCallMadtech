@@ -1,3 +1,4 @@
+export * from './createRoomDto';
 export * from './languageDto';
 export * from './login';
 export * from './register';

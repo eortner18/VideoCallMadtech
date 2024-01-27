@@ -19,6 +19,8 @@ namespace MadTechLib
         public DbSet<User>Users { get; set; }
         public DbSet<LanguageCode> LanguageCodes { get; set; }
 
+        public DbSet<RoomDetails> RoomDetail { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

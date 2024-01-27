@@ -7,6 +7,7 @@ configuration.ts
 encoder.ts
 git_push.sh
 index.ts
+model/createRoomDto.ts
 model/languageDto.ts
 model/login.ts
 model/models.ts

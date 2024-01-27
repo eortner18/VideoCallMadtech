@@ -19,6 +19,8 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
+import { CreateRoomDto } from '../model/createRoomDto';
+// @ts-ignore
 import { LanguageDto } from '../model/languageDto';
 // @ts-ignore
 import { Login } from '../model/login';
@@ -165,20 +167,20 @@ export class TwillioService {
     }
 
     /**
-     * @param roomName 
+     * @param mailTo 
      * @param userDto 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public madTechCreateRoomPost(roomName?: string, userDto?: UserDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<string>;
-    public madTechCreateRoomPost(roomName?: string, userDto?: UserDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<string>>;
-    public madTechCreateRoomPost(roomName?: string, userDto?: UserDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<string>>;
-    public madTechCreateRoomPost(roomName?: string, userDto?: UserDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public madTechCreateRoomPost(mailTo?: string, userDto?: UserDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<CreateRoomDto>;
+    public madTechCreateRoomPost(mailTo?: string, userDto?: UserDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<CreateRoomDto>>;
+    public madTechCreateRoomPost(mailTo?: string, userDto?: UserDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<CreateRoomDto>>;
+    public madTechCreateRoomPost(mailTo?: string, userDto?: UserDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (roomName !== undefined && roomName !== null) {
+        if (mailTo !== undefined && mailTo !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>roomName, 'RoomName');
+            <any>mailTo, 'mailTo');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -226,7 +228,7 @@ export class TwillioService {
         }
 
         let localVarPath = `/MadTech/CreateRoom`;
-        return this.httpClient.request<string>('post', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<CreateRoomDto>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: userDto,
@@ -475,18 +477,23 @@ export class TwillioService {
 
     /**
      * @param roomName 
+     * @param username 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public madTechJoinRoomPost(roomName?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<string>;
-    public madTechJoinRoomPost(roomName?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<string>>;
-    public madTechJoinRoomPost(roomName?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<string>>;
-    public madTechJoinRoomPost(roomName?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+    public madTechJoinRoomPost(roomName?: string, username?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<string>;
+    public madTechJoinRoomPost(roomName?: string, username?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<string>>;
+    public madTechJoinRoomPost(roomName?: string, username?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<string>>;
+    public madTechJoinRoomPost(roomName?: string, username?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (roomName !== undefined && roomName !== null) {
           localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
             <any>roomName, 'RoomName');
+        }
+        if (username !== undefined && username !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>username, 'username');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -523,6 +530,79 @@ export class TwillioService {
         }
 
         let localVarPath = `/MadTech/JoinRoom`;
+        return this.httpClient.request<string>('post', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param roomName 
+     * @param username 
+     * @param accesToken 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public madTechJoinRoomTokenPost(roomName?: string, username?: string, accesToken?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<string>;
+    public madTechJoinRoomTokenPost(roomName?: string, username?: string, accesToken?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpResponse<string>>;
+    public madTechJoinRoomTokenPost(roomName?: string, username?: string, accesToken?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<HttpEvent<string>>;
+    public madTechJoinRoomTokenPost(roomName?: string, username?: string, accesToken?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext}): Observable<any> {
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (roomName !== undefined && roomName !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>roomName, 'RoomName');
+        }
+        if (username !== undefined && username !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>username, 'username');
+        }
+        if (accesToken !== undefined && accesToken !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>accesToken, 'AccesToken');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'text/plain',
+                'application/json',
+                'text/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/MadTech/JoinRoomToken`;
         return this.httpClient.request<string>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,

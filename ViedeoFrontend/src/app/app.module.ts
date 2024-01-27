@@ -14,6 +14,7 @@ import { envrionment } from './envrionments/environment';
 import { BASE_PATH } from './swagger';
 import { WebcamModule } from 'ngx-webcam';
 import { withComponentInputBinding } from '@angular/router';
+import { EnterLinkUsernameComponent } from './enter-link-username/enter-link-username.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { withComponentInputBinding } from '@angular/router';
     RegisterComponent,
     MenuComponent,
     ErrorPageComponent,
+    EnterLinkUsernameComponent,
   ],
   imports: [
     BrowserModule,

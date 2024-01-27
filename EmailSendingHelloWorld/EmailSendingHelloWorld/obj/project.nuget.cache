@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "1J3xYXoqH/TkGgBSw/SCxyXdnd5OitgKb0hK9lnrdDHlWhXuABJ6p8NLjbnR/S6HY5lzr2R8pnX+IdKzdiLB1w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\EmailSendingHelloWorld\\EmailSendingHelloWorld\\EmailSendingHelloWorld.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.12\\microsoft.windowsdesktop.app.ref.7.0.12.nupkg.sha512",
+    "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.12\\microsoft.netcore.app.ref.7.0.12.nupkg.sha512",
+    "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.12\\microsoft.aspnetcore.app.ref.7.0.12.nupkg.sha512",
+    "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.12\\microsoft.netcore.app.host.win-x64.7.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
