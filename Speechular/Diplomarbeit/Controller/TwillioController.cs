@@ -66,9 +66,9 @@ namespace Diplomarbeit.Controller
 
         [HttpPost]
         [Route("MadTech/AddUser")]
-        public void AddUser(Register register)
+        public bool AddUser(Register register)
         {
-            _service.AddUser(register);
+            return _service.AddUser(register);
         }
 
         [HttpPost]

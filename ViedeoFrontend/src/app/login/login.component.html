@@ -16,7 +16,17 @@
     </div>
     <div class="row">
         <div class="d-flex justify-content-center m-3">
-            <button (click)="Login()" class="btn btn-primary m-3">Login</button>
+            <div class="coloumn">
+                <div *ngIf="checkUsername()" class="fehler">Username muss mind. 3 Buchstaben haben</div>
+                <div *ngIf="checkPssword()" class="fehler">Passwort muss mindestens ein Groß und Kleinbuchstaben enthalten, eine Ziffer und muss 8 Ziffern haben</div>
+                <div *ngIf="wrongInput" class="fehler">Username oder Passwort ist falsch</div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="d-flex justify-content-center m-3">
+            <button [disabled]="checkAll()" (click)="Login()" class="btn btn-primary m-3">Login</button>
         </div>
     
     </div>

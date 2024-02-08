@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LanguageDto, Register, TwillioService } from '../swagger';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,6 +9,8 @@ import { LanguageDto, Register, TwillioService } from '../swagger';
 })
 export class RegisterComponent {
   countrys:LanguageDto[]=[];
+  router = inject(Router);
+
 
   firstName:string = "";
   lastName:string = "";
@@ -16,32 +19,83 @@ export class RegisterComponent {
   userName:string = "";
   mail:string = "";
   selectedCountry:string = "";
+  userExist:boolean = false;
 
   register:Register|undefined;
 
+  checkFirstname():boolean{
+    let pattern:RegExp = /^[A-Z]{1,1}[a-z]{3,}$/g;
+    return !pattern.test(this.firstName);
+  }
+
+  checkLastName():boolean{
+    const pattern = /[A-Z]{1,1}[a-z]{3,}/g;
+    return !pattern.test(this.lastName);
+  }
+
+  checkPssword():boolean{
+    let pattern:RegExp = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/g;
+    return !pattern.test(this.password);
+  }
+
+  checkPssword2():boolean{
+    return !(this.password == this.password2);
+  }
+
+  checkUsername():boolean{
+    let pattern:RegExp = /^\w{4,}$/g;
+    return !pattern.test(this.userName);
+  }
+
+  checkMail():boolean{
+    let pattern:RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g;
+    return !pattern.test(this.mail);
+  }
+
+  
+  checkAll():boolean{
+    if(this.checkFirstname()){
+      return true;
+    }
+    if(this.checkLastName()){
+      return true;
+    }
+    if(this.checkPssword()){
+      return true;
+    }
+    if(this.checkPssword2()){
+      return true;
+    }
+    if(this.checkMail()){
+      return true;
+    }
+    if(this.checkUsername()){
+      return true;
+    }
+    return false;
+  }
 
   constructor(public twillioService:TwillioService){
-    twillioService.madTechGetLanguagesGet().subscribe(x=>this.countrys=x);
+    twillioService.madTechGetLanguagesGet().subscribe(x=>{
+      this.countrys=x;
+      this.selectedCountry = x[0].countryName!; 
+    });
   }
 
   Registrieren():void{
-    if(this.firstName.trim()!= "" && this.lastName.trim()!= "" &&this.userName.trim()!= "" &&
-    this.password.trim()!= "" &&this.password2.trim()!= "" &&this.mail.trim()!= "" &&
-    this.selectedCountry.trim()!= ""){
-      if(this.password == this.password2){
+   
         this.register = {countryName:this.selectedCountry,firstName:this.firstName,lastName:this.lastName,mail:this.mail,password:this.password,userName:this.userName};
-        this.twillioService.madTechAddUserPost(this.register).subscribe(x=>console.log(x));
-      }
-    }
-    else{
-      console.log("Daten befüllen!");
-      console.log(this.firstName.trim());
-      console.log(this.lastName.trim());
-      console.log(this.mail.trim());
-      console.log(this.userName.trim());
-      console.log(this.password.trim());
-      console.log(this.password2.trim());
-      console.log(this.selectedCountry.trim());
-    }
+        this.twillioService.madTechAddUserPost(this.register).subscribe(x=>{
+          if(!x){
+            this.userExist = true;
+          } 
+          else{
+            this.router.navigateByUrl("login");
+
+          }
+        });
+      
+      console.log("registrieren");
+    
   }
 }
