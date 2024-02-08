@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "obXeBUIUmog1srZGBN2Amcj5r56UdIzCfXDpTFz7drgVf+rrhzTVJNkvWdSezHW2GCz2/ZeE95Vmn7NRkcGczw==",
+  "dgSpecHash": "leyYhdgfMvaDnRdcUASr32ZKwc5mFSOoFGk8m3Sl+p3cFJS3yqPG58U0/7CK4NBzbsitdB0OxZfOXDQH1M1yRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\Diplomarbeit\\Diplomarbeit.csproj",
+  "projectFilePath": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\Diplomarbeit\\Diplomarbeit.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
-    "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\grueneisr.restclientgenerator\\1.2.1\\grueneisr.restclientgenerator.1.2.1.nupkg.sha512",
+    "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\grueneisr.restclientgenerator\\1.2.2\\grueneisr.restclientgenerator.1.2.2.nupkg.sha512",
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

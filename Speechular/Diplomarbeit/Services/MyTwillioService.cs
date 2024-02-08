@@ -22,17 +22,18 @@ namespace Diplomarbeit.Services
     {
 
         private MadTechContext _context;
+        private string TwilTok = "a5222c00ee889f1865ea401a3d18939e";
 
         public MyTwillioService(MadTechContext context)
         {
-            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", TwilTok);
             _context = context;
         }
 
         public CreateRoomDto CreateRoom(UserDto user,string sendMailTo)
         {
 
-            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", TwilTok);
             try
             {
                 var roomExist = RoomResource.Fetch(user.UserName + " Room");
@@ -52,7 +53,7 @@ namespace Diplomarbeit.Services
 
 
 
-            var room = RoomResource.Create(uniqueName: user.UserName+" Room", emptyRoomTimeout: 60,type:RoomResource.RoomTypeEnum.Go);
+            var room = RoomResource.Create(uniqueName: user.UserName+" Room", emptyRoomTimeout: 2,type:RoomResource.RoomTypeEnum.Go);
 
             var grant = new VideoGrant();
             grant.Room = room.UniqueName;
@@ -151,7 +152,7 @@ namespace Diplomarbeit.Services
 
         public List<TwilioRooms> GetRooms()
         {
-            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", TwilTok);
 
             //var room = RoomResource.Create(uniqueName: "MyRoom", emptyRoomTimeout: 60);
             Console.WriteLine(RoomResource.Read().Count());
@@ -207,7 +208,7 @@ namespace Diplomarbeit.Services
             Console.WriteLine("login");
             if(_context.Users.Where(x => x.Username == login.UserName || x.Email == login.UserName).Where(x => x.Password == login.Password).Count() > 0)
             {
-                TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
+                TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", TwilTok);
 
                     UserDto user = _context.Users.Where(x => x.Username == login.UserName || x.Email == login.UserName).Where(x => x.Password == login.Password).Select(x => new UserDto
                     {
@@ -228,7 +229,7 @@ namespace Diplomarbeit.Services
 
         public void LogOut(UserDto user)
         {
-            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", "d3e145fe329b5e1630fc243ebeb557a0");
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", TwilTok);
 
             var account = AccountResource.Update(
             status: AccountResource.StatusEnum.Closed,
