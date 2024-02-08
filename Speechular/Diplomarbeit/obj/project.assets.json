@@ -46,7 +46,7 @@
           }
         }
       },
-      "GrueneisR.RestClientGenerator/1.2.1": {
+      "GrueneisR.RestClientGenerator/1.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -4075,15 +4075,15 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
-    "GrueneisR.RestClientGenerator/1.2.1": {
-      "sha512": "7IO4ShTFcRDhIK4fGZXHHb3L5Cla2zQGzNIk0tVJwENzoE5RcGq+fvfngzcwp/WDcsswX3LyTPMw/BbUmTcRYg==",
+    "GrueneisR.RestClientGenerator/1.2.2": {
+      "sha512": "e1dk1ovEo0V3HomKpSJb8Uaqj1Nj4d02ftRoBVchyYFGkkNesr5kURoRdRrAnnDyWJDh7oXfR7BZ4i4Ju/gNwg==",
       "type": "package",
-      "path": "grueneisr.restclientgenerator/1.2.1",
+      "path": "grueneisr.restclientgenerator/1.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "grueneisr.restclientgenerator.1.2.1.nupkg.sha512",
+        "grueneisr.restclientgenerator.1.2.2.nupkg.sha512",
         "grueneisr.restclientgenerator.nuspec",
         "lib/net6.0/RestClientGeneratorMiddlewareLib.dll"
       ]
@@ -11342,11 +11342,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\Diplomarbeit\\Diplomarbeit.csproj",
+      "projectUniqueName": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\Diplomarbeit\\Diplomarbeit.csproj",
       "projectName": "Diplomarbeit",
-      "projectPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\Diplomarbeit\\Diplomarbeit.csproj",
+      "projectPath": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\Diplomarbeit\\Diplomarbeit.csproj",
       "packagesPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\Diplomarbeit\\obj\\",
+      "outputPath": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\Diplomarbeit\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -11368,8 +11368,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj": {
-              "projectPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj"
+            "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj": {
+              "projectPath": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj"
             }
           }
         }

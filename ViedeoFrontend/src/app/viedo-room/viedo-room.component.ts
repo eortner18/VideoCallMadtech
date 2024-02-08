@@ -13,12 +13,10 @@ import { TwillioService } from '../swagger';
   styleUrls: ['./viedo-room.component.scss']
 })
 export class ViedoRoomComponent {
-  // room: Room | undefined;
-  // error: Error | undefined;
-  // videoRef:any;
-  // mySrc:MediaStream|undefined;
+  
   @Input() roomName:string = '';
   @Input() accessToken:string = '';
+
 
 
   router = inject(Router);
@@ -27,11 +25,6 @@ export class ViedoRoomComponent {
 
 
   async ngOnInit(): Promise<void> {
-// this.videoRef = document.getElementById('video');
-// console.log(this.videoRef);
-// this.setUpCamera();
-
-// this.startLocalVideo();
 this.JoinRoom();
   
 }
@@ -49,8 +42,9 @@ async JoinRoom(): Promise<void>{
       
     }
     else{
+      this.dataService.username = this.dataService.user()?.userName!;
       const track = createLocalVideoTrack();
-const video = document.getElementById('local-media');
+const video = document.getElementById('firstVideo');
 
 track.then(t => video?.append(t.attach()));
       console.log("room:");
@@ -68,16 +62,7 @@ track.then(t => video?.append(t.attach()));
     
     
 
-    // console.log(room);
-    // connect(this.dataService.token, {name:this.dataService.roomName}).then(room=>{
-    //   this.dataService.room = room;
-    //   console.log('connected');
-    //   this.dataService.room.participants.forEach(this.participantConnected);
-    //    this.dataService.room.on('participantConnected', this.participantConnected);
-    //   this.dataService.room.on('participantDisconnected', participantDisconnected);
-    // },error=>{
-    //   console.log('not connected');
-    // })
+    
   }
   catch(e){
     // console.log(e);
@@ -87,20 +72,10 @@ track.then(t => video?.append(t.attach()));
 
 }
 
-startLocalVideo(): void {
- createLocalVideoTrack({
-    width: 1280, height: 720 ,
-  }).then(track => {
-    const div = document.getElementById('local-media');
-    div?.appendChild(track.attach());
-  });
-}
-
-
 
 
 participantConnected(participant:Participant):void{
-  const div = document.getElementById('local-media');
+  const div = document.getElementById('secondVideo');
 
   const participantDiv = document.createElement('div');
   participantDiv.setAttribute('id', participant.sid);
@@ -108,7 +83,10 @@ participantConnected(participant:Participant):void{
   const tracksDiv = document.createElement('div');
   tracksDiv.setAttribute('id', 'video-div');
 
-  
+  console.log('noch kein fehler')
+  const patDiv = document.getElementById('partName');
+  patDiv!.innerHTML = participant.identity;
+
 
   participantDiv.appendChild(tracksDiv);
   div?.appendChild(participantDiv);
@@ -137,7 +115,7 @@ participantDisconnected(participant:Participant):void{
 GastJoinRoom():void{
   if(this.dataService.username.trim().length>0){
     const track = createLocalVideoTrack();
-const video = document.getElementById('local-media');
+const video = document.getElementById('firstVideo');
 
 track.then(t => video?.append(t.attach()));
     this.twil.madTechJoinRoomPost(this.dataService.roomName,this.dataService.username).subscribe(async x=>{
@@ -153,9 +131,9 @@ track.then(t => video?.append(t.attach()));
     },
     });
     console.log(room);
-  room.participants.forEach(this.participantConnected);
-  room.on('participantConnected',this.participantConnected);
-  room.on('participantDisconnected', this.participantDisconnected);
+    room.participants.forEach(this.participantConnected);
+    room.on('participantConnected',this.participantConnected);
+    room.on('participantDisconnected', this.participantDisconnected);
     });
   }
   else{

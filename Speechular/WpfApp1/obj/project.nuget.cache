@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "61F2JuBFhhmZmYAZ3HYybltBGqH2aiWDaVq5/4YFhyyEXTbieVkUWA46NUaCcIfmsWcfF5FECsLx1bfTlddsOw==",
+  "dgSpecHash": "cWyeeiXyu19jNwzhRjRGrTHbHSEF2IOUfb11iNL62+gcalBDM1C98hoXfRm2Em3LFqFcEoEgbLbh/N4PtOt0Hw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\WpfApp1\\WpfApp1.csproj",
+  "projectFilePath": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\WpfApp1\\WpfApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

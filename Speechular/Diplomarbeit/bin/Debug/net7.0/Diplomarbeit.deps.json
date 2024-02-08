@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "Diplomarbeit/1.0.0": {
         "dependencies": {
-          "GrueneisR.RestClientGenerator": "1.2.1",
+          "GrueneisR.RestClientGenerator": "1.2.2",
           "MadTechLib": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.0",
@@ -53,15 +53,15 @@
           }
         }
       },
-      "GrueneisR.RestClientGenerator/1.2.1": {
+      "GrueneisR.RestClientGenerator/1.2.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
         },
         "runtime": {
           "lib/net6.0/RestClientGeneratorMiddlewareLib.dll": {
-            "assemblyVersion": "1.2.1.0",
-            "fileVersion": "1.2.1.0"
+            "assemblyVersion": "1.2.2.0",
+            "fileVersion": "1.2.2.0"
           }
         }
       },
@@ -2634,12 +2634,12 @@
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
     },
-    "GrueneisR.RestClientGenerator/1.2.1": {
+    "GrueneisR.RestClientGenerator/1.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7IO4ShTFcRDhIK4fGZXHHb3L5Cla2zQGzNIk0tVJwENzoE5RcGq+fvfngzcwp/WDcsswX3LyTPMw/BbUmTcRYg==",
-      "path": "grueneisr.restclientgenerator/1.2.1",
-      "hashPath": "grueneisr.restclientgenerator.1.2.1.nupkg.sha512"
+      "sha512": "sha512-e1dk1ovEo0V3HomKpSJb8Uaqj1Nj4d02ftRoBVchyYFGkkNesr5kURoRdRrAnnDyWJDh7oXfR7BZ4i4Ju/gNwg==",
+      "path": "grueneisr.restclientgenerator/1.2.2",
+      "hashPath": "grueneisr.restclientgenerator.1.2.2.nupkg.sha512"
     },
     "Humanizer.Core/2.2.0": {
       "type": "package",

@@ -3,3 +3,17 @@ video {
 //    height: 450px; 
    background: #222;
  }
+
+
+ .local-media {
+  display: flex;
+  justify-content: start; 
+  flex-direction: column;
+}
+.first {
+  width: 50%;
+}
+
+.second {
+  width: 50%;
+}

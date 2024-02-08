@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj": {}
+    "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj": {
+    "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj",
+        "projectUniqueName": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj",
         "projectName": "MadTechLib",
-        "projectPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj",
+        "projectPath": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\MadTechLib\\MadTechLib.csproj",
         "packagesPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\daure.LAPTOP-T1J55CM5\\Documents\\GitHub\\VideoCallMadtech\\Speechular\\MadTechLib\\obj\\",
+        "outputPath": "D:\\Schule\\5B\\dip\\Git\\VideoCallMadtech\\Speechular\\MadTechLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
