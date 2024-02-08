@@ -177,22 +177,29 @@ namespace Diplomarbeit.Services
             }).Distinct().ToList();
         }
 
-        public void AddUser(Register register)
+        public bool AddUser(Register register)
         {
-            //Abfragen ob mail existiert
-            //To-Do
-
-            
-            _context.Users.Add(new User
+            if(_context.Users.Where(x=>x.Username == register.UserName).ToList().Count > 0)
             {
-                Email = register.Mail,
-                FirstName = register.FirstName,
-                LastName = register.LastName,
-                Password = register.Password,
-                PreferredLanguage = _context.LanguageCodes.Where(x => x.CountryName == register.CountryName).Select(x => x.CountryCode).FirstOrDefault(),
-                Username = register.UserName,
-            });
-            _context.SaveChanges();
+                return false;
+            }
+            else
+            {
+                _context.Users.Add(new User
+                {
+                    Email = register.Mail,
+                    FirstName = register.FirstName,
+                    LastName = register.LastName,
+                    Password = register.Password,
+                    PreferredLanguage = _context.LanguageCodes.Where(x => x.CountryName == register.CountryName).Select(x => x.CountryCode).FirstOrDefault(),
+                    Username = register.UserName,
+                });
+                _context.SaveChanges();
+
+                return true;
+            }
+            
+            
         }
 
         public UserDto GetUserLogin(Login login)
