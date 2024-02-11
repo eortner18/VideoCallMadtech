@@ -47,7 +47,7 @@ Console.WriteLine($"******** ConnectionString: {connectionString}");
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine($"******** Don't forget to comment out NorthwindContext.OnConfiguring !");
 Console.ResetColor();
-builder.Services.AddDbContext<MadTechContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<MadTechContext>(/*options => options.UseSqlServer(connectionString)*/);
 builder.Services.AddLogging(x => x.AddCustomFormatter());
 builder.Services.AddHostedService<BackService>();
 builder.Services.AddScoped<MyTwillioService>();

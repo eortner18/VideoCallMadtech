@@ -1,0 +1,24 @@
+<input placeholder="mail of inviting user" [(ngModel)]="mailInvite">
+<button (click)="CreateRoom()">Create Room</button>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr >
+        <th scope="col">Room Name</th>
+        <th scope="col">Participants</th>
+        <th scope="col">Max Participants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of roomNames">
+        <td>{{room.name}}</td>
+        <td>{{room.participants}}</td>
+        <td>{{room.participantsMax}}</td>
+        <td><input [(ngModel)]="accessToken" placeholder="AccessToken" type="text" ></td>
+        <td><button (click)="Join(room.name!)" >Join</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  

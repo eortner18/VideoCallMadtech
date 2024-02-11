@@ -10,17 +10,32 @@ namespace Diplomarbeit.Controller
     public class TwillioController : ControllerBase
     {
         private readonly MyTwillioService _service;
+        private readonly TranslationService _translationService;
 
-        public TwillioController(MyTwillioService service)
+        public TwillioController(MyTwillioService service, TranslationService translationService)
         {
             _service = service;
+            _translationService = translationService;
         }
 
         [HttpPost]
         [Route("MadTech/CreateRoom")]
-        public void createRoom(UserDto user,string RoomName)
+        public CreateRoomDto createRoom(UserDto user,string mailTo)
         {
-             _service.CreateRoom(user, RoomName);
+             return _service.CreateRoom(user,mailTo);
+        }
+        [HttpPost]
+        [Route("MadTech/JoinRoom")]
+        public string joinRoom(string RoomName,string username)
+        {
+            return _service.JoinRoom(RoomName, username);
+        }
+
+        [HttpPost]
+        [Route("MadTech/JoinRoomToken")]
+        public string joinRoomToken(string RoomName, string username,string AccesToken)
+        {
+            return _service.JoinRoomAccesToken(RoomName, username,AccesToken);
         }
 
         [HttpGet]
@@ -44,7 +59,7 @@ namespace Diplomarbeit.Controller
             return _service.Languages();
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("MadTech/GetUserLogin")]
         public UserDto GetUserLogin(Login login)
         {
@@ -53,9 +68,30 @@ namespace Diplomarbeit.Controller
 
         [HttpPost]
         [Route("MadTech/AddUser")]
-        public void AddUser(Register register)
+        public bool AddUser(Register register)
         {
-            _service.AddUser(register);
+            return _service.AddUser(register);
+        }
+
+        [HttpPost]
+        [Route("MadTech/LogOut")]
+        public void LogOutUser(UserDto user)
+        {
+            _service.LogOut(user);
+        }
+
+        [HttpPost]
+        [Route("MadTech/DeleteRoom")]
+        public void DeleteRoom(string RoomName)
+        {
+            _service.DeleteRoom(RoomName);
+        }
+
+        [HttpGet]
+        [Route("MadTech/Translate")]
+        public string TranslateText(string text, string A, string B)
+        {
+            return _translationService.TranslateText(text, A, B);
         }
     }
 }

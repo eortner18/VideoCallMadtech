@@ -56,6 +56,7 @@ const connect = async (username) => {
       body: JSON.stringify({'username': username}),
     });
     const data = await response.json();
+    console.log(data.token);
     room = await Twilio.Video.connect(data.token);
     room.participants.forEach(participantConnected);
     room.on('participantConnected', participantConnected);
@@ -135,7 +136,7 @@ const connect = async (username) => {
 
     if(track.kind == 'audio'){
       console.log('audio gefunden');
-      UpdateText(track);
+      // UpdateText(track);
     }
     // else{
     //   console.log('video: ');
