@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MadTechLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70cfe8f456de0075a9f5623dd27b2596e091bf2a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f86e73c1723b028310f58bab87f0d21f6629146f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MadTechLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MadTechLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -10,10 +10,12 @@ namespace Diplomarbeit.Controller
     public class TwillioController : ControllerBase
     {
         private readonly MyTwillioService _service;
+        private readonly TranslationService _translationService;
 
-        public TwillioController(MyTwillioService service)
+        public TwillioController(MyTwillioService service, TranslationService translationService)
         {
             _service = service;
+            _translationService = translationService;
         }
 
         [HttpPost]
@@ -83,6 +85,13 @@ namespace Diplomarbeit.Controller
         public void DeleteRoom(string RoomName)
         {
             _service.DeleteRoom(RoomName);
+        }
+
+        [HttpGet]
+        [Route("MadTech/Translate")]
+        public string TranslateText(string text, string A, string B)
+        {
+            return _translationService.TranslateText(text, A, B);
         }
     }
 }

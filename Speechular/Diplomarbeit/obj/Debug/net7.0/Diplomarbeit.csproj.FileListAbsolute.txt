@@ -1432,3 +1432,14 @@ D:\Schule\5B\dip\Git\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\r
 D:\Schule\5B\dip\Git\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.pdb
 D:\Schule\5B\dip\Git\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.genruntimeconfig.cache
 D:\Schule\5B\dip\Git\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\ref\Diplomarbeit.dll
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.csproj.AssemblyReference.cache
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.AssemblyInfoInputs.cache
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.AssemblyInfo.cs
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.csproj.CoreCompileInputs.cache
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.sourcelink.json
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.dll
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\refint\Diplomarbeit.dll
+C:\Users\Elias\Documents\GitHub\VideoCallMadtech\Speechular\Diplomarbeit\obj\Debug\net7.0\Diplomarbeit.pdb
