@@ -22,7 +22,7 @@ namespace Diplomarbeit.Services
     {
 
         private MadTechContext _context;
-        private string TwilTok = "a5222c00ee889f1865ea401a3d18939e";
+        private string TwilTok = "73a259a522e3fb82c6500f10b95ea0b9";
 
         public MyTwillioService(MadTechContext context)
         {
@@ -155,7 +155,7 @@ namespace Diplomarbeit.Services
             TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", TwilTok);
 
             //var room = RoomResource.Create(uniqueName: "MyRoom", emptyRoomTimeout: 60);
-            Console.WriteLine(RoomResource.Read().Count());
+            //Console.WriteLine(RoomResource.Read().Count());
             return RoomResource.Read().Select(x=>new TwilioRooms
             {
                 ParticipantsMax = x.MaxParticipants.Value,
@@ -238,6 +238,27 @@ namespace Diplomarbeit.Services
 
             _context.Users.Where(x => x.Username == user.UserName).FirstOrDefault().UserToken = "";
             _context.SaveChanges();
+        }
+
+        public void DeleteRoom(string RoomName)
+        {
+            TwilioClient.Init("ACcc68c5f3aed6ca9e4509cff2536c5977", TwilTok);
+            
+                try
+                {
+                    var roomExist = RoomResource.Fetch(RoomName);
+
+
+                    RoomResource.Update(
+                        status: RoomResource.RoomStatusEnum.Completed,
+                        pathSid: roomExist.Sid
+                        );
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            
         }
 
         public static byte[] GetHash(string inputString)

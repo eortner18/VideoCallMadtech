@@ -13,6 +13,7 @@ export class LoginComponent {
   userName:string = "";
   password:string = "";
 
+  EingabeFalsch:boolean = false;
   wrongInput:boolean = false;
   
   login:Login|undefined;
@@ -43,11 +44,12 @@ export class LoginComponent {
   
   Login():void{
       // this.router.navigateByUrl("menu");
-  
-      this.login = {userName:this.userName,password: this.password};
+  if(!this.checkAll()){
+    this.login = {userName:this.userName,password: this.password};
       this.twilioService.madTechGetUserLoginPost(this.login!).subscribe(x=>{
         if(x!= null){
           this.dataService.user.set(x);
+          this.dataService.isLoggedIn = true;
           this.router.navigateByUrl("menu");
         }
         else{
@@ -55,6 +57,11 @@ export class LoginComponent {
         }
       });
       console.log("login");
+  }
+  else{
+    this.EingabeFalsch = true;
+  }
+      
     
   }
 }

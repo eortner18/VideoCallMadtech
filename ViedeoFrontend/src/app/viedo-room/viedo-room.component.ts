@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, Input, OnDestroy, OnInit, PLATFORM_ID, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, Input, OnDestroy, OnInit, PLATFORM_ID, ViewChild, inject } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
 import { LocalTrack, Participant, Track, TrackPublication, connect, createLocalAudioTrack, createLocalTracks, createLocalVideoTrack } from 'twilio-video';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { TwillioService } from '../swagger';
   templateUrl: './viedo-room.component.html',
   styleUrls: ['./viedo-room.component.scss']
 })
-export class ViedoRoomComponent {
+export class ViedoRoomComponent implements OnInit{
   
   @Input() roomName:string = '';
   @Input() accessToken:string = '';
@@ -22,6 +22,7 @@ export class ViedoRoomComponent {
   router = inject(Router);
 
   constructor(public dataService:DataServiceService,public twil:TwillioService){}
+
 
 
   async ngOnInit(): Promise<void> {
@@ -55,6 +56,7 @@ track.then(t => video?.append(t.attach()));
       },
       });
       console.log(room);
+      this.dataService.room = room;
     room.participants.forEach(this.participantConnected);
     room.on('participantConnected',this.participantConnected);
     room.on('participantDisconnected', this.participantDisconnected);
@@ -77,10 +79,10 @@ track.then(t => video?.append(t.attach()));
 participantConnected(participant:Participant):void{
   const div = document.getElementById('secondVideo');
 
-  const participantDiv = document.createElement('div');
+  const participantDiv = document.createElement('span');
   participantDiv.setAttribute('id', participant.sid);
 
-  const tracksDiv = document.createElement('div');
+  const tracksDiv = document.createElement('span');
   tracksDiv.setAttribute('id', 'video-div');
 
   console.log('noch kein fehler')
@@ -110,10 +112,14 @@ div.appendChild(track.attach());
 
 participantDisconnected(participant:Participant):void{
   document.getElementById(participant.sid)?.remove();
+  const jgldiv = document.getElementById('secondVideo');
+  jgldiv?.innerHTML!= "";
 }
 
 GastJoinRoom():void{
   if(this.dataService.username.trim().length>0){
+    this.dataService.isLoggedIn = true;
+    this.dataService.inRoom = true;
     const track = createLocalVideoTrack();
 const video = document.getElementById('firstVideo');
 
@@ -131,6 +137,7 @@ track.then(t => video?.append(t.attach()));
     },
     });
     console.log(room);
+    this.dataService.room = room;
     room.participants.forEach(this.participantConnected);
     room.on('participantConnected',this.participantConnected);
     room.on('participantDisconnected', this.participantDisconnected);

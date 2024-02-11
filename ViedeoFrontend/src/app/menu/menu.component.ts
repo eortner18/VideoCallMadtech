@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { TwilioRooms, TwillioService } from '../swagger';
 import { DataServiceService } from '../data-service.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit{
   roomNames:TwilioRooms[]=[];
   accessToken:string = "";
   mailInvite:string = "";
@@ -17,6 +17,9 @@ export class MenuComponent {
   
   constructor(public twilioService:TwillioService,public dataService:DataServiceService){
     twilioService.madTechGetRoomsGet().subscribe(x=>this.roomNames = x);
+  }
+  ngOnInit(): void {
+    this.dataService.inRoom = false;
   }
   
   Join(roomName:string):void{
@@ -33,6 +36,7 @@ export class MenuComponent {
     this.twilioService.madTechCreateRoomPost(this.mailInvite,this.dataService.user()!).subscribe(x=>{
       this.dataService.token = x.jwtToken!;
       console.log(x);
+      this.dataService.inRoom = true;
       this.router.navigateByUrl(`video-room/${x.roomName!}/${x.accessToken!}`);
     });
   }

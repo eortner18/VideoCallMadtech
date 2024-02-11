@@ -42,11 +42,11 @@ namespace Diplomarbeit.Services
 
             _context.Users.Add(new User
             {
-                Email = "daurer.michael1@gmail.com",
-                Username = "Daurer",
+                Email = "daurer.fsaf@mail.com",
+                Username = "test",
                 FirstName = "Michael",
                 LastName = "Daurer",
-                Password = "123",
+                Password = "Hallo123",
                 PreferredLanguage = "en-US",
                 UserToken = "4a987abfde63ba9676662e26cc29da64",
             });
