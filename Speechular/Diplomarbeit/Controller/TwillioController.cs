@@ -77,5 +77,12 @@ namespace Diplomarbeit.Controller
         {
             _service.LogOut(user);
         }
+
+        [HttpPost]
+        [Route("MadTech/DeleteRoom")]
+        public void DeleteRoom(string RoomName)
+        {
+            _service.DeleteRoom(RoomName);
+        }
     }
 }

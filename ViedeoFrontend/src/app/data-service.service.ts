@@ -1,11 +1,13 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 import { UserDto } from './swagger';
 import { Room } from 'twilio-video';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
+  router = inject(Router);
 
   constructor() { }
 
@@ -21,10 +23,8 @@ export class DataServiceService {
 
   roomName:string = "";
 
-  isLoggedIn = computed(()=>{
-    if(this.user() != null){
-      return true;
-    }
-    return false;
-  })
+  isLoggedIn:boolean = false;
+
+  inRoom:boolean = this.isLoggedIn && true;
+
 }

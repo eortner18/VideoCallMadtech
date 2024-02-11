@@ -11,6 +11,7 @@ export class RegisterComponent {
   countrys:LanguageDto[]=[];
   router = inject(Router);
 
+  EingabeFalsch:boolean = false;
 
   firstName:string = "";
   lastName:string = "";
@@ -84,7 +85,8 @@ export class RegisterComponent {
 
   Registrieren():void{
    
-        this.register = {countryName:this.selectedCountry,firstName:this.firstName,lastName:this.lastName,mail:this.mail,password:this.password,userName:this.userName};
+        if(!this.checkAll()){
+          this.register = {countryName:this.selectedCountry,firstName:this.firstName,lastName:this.lastName,mail:this.mail,password:this.password,userName:this.userName};
         this.twillioService.madTechAddUserPost(this.register).subscribe(x=>{
           if(!x){
             this.userExist = true;
@@ -96,6 +98,10 @@ export class RegisterComponent {
         });
       
       console.log("registrieren");
+        }
+        else{
+          this.EingabeFalsch = true;
+        }
     
   }
 }

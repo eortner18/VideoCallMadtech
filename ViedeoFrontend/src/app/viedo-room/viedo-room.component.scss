@@ -2,13 +2,15 @@ video {
 //     width: 786px;
 //    height: 450px; 
    background: #222;
+   width: 50%;
  }
 
 
  .local-media {
   display: flex;
-  justify-content: start; 
-  flex-direction: column;
+  // justify-content: start; 
+  flex-direction: row;
+  padding: 20px;
 }
 .first {
   width: 50%;

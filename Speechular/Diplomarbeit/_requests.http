@@ -31,6 +31,8 @@ Content-type: application/json
    "authTkn": "abc"
 }
 #####
+POST {{baseUrl}}/MadTech/DeleteRoom?RoomName=abc
+#####
 POST {{baseUrl}}/MadTech/GetUserLogin
 Content-type: application/json
 

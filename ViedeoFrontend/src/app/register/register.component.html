@@ -31,12 +31,12 @@
     <div class="row">
         <div class="d-flex justify-content-center m-3">
             <div class="coloumn">
-                <div *ngIf="checkFirstname()" class="fehler">Vorname muss mind. 3 Buchstaben haben und ein Großbuchstaben enthalten</div>
-                <div *ngIf="checkLastName()" class="fehler">Nachname muss mind. 3 Buchstaben haben und ein Großbuchstaben enthalten</div>
-                <div *ngIf="checkUsername()" class="fehler">Username muss mind. 3 Buchstaben haben</div>
-                <div *ngIf="checkMail()" class="fehler">Mail inkorrekt</div>
-                <div *ngIf="checkPssword()" class="fehler">Passwort muss mindestens ein Groß und Kleinbuchstaben enthalten, eine Ziffer und muss 8 Ziffern haben</div>
-                <div *ngIf="checkPssword2()" class="fehler">Passwörter stimmen nicht überein</div>
+                <div *ngIf="checkFirstname() && EingabeFalsch" class="fehler">Vorname muss mind. 3 Buchstaben haben und ein Großbuchstaben enthalten</div>
+                <div *ngIf="checkLastName() && EingabeFalsch" class="fehler">Nachname muss mind. 3 Buchstaben haben und ein Großbuchstaben enthalten</div>
+                <div *ngIf="checkUsername() && EingabeFalsch" class="fehler">Username muss mind. 3 Buchstaben haben</div>
+                <div *ngIf="checkMail() && EingabeFalsch" class="fehler">Mail inkorrekt</div>
+                <div *ngIf="checkPssword() && EingabeFalsch" class="fehler">Passwort muss mindestens ein Groß und Kleinbuchstaben enthalten, eine Ziffer und muss 8 Ziffern haben</div>
+                <div *ngIf="checkPssword2() && EingabeFalsch" class="fehler">Passwörter stimmen nicht überein</div>
                 <div *ngIf="userExist" class="fehler">Username existiert beriets</div>
             </div>
         </div>
@@ -46,7 +46,7 @@
     <div class="d-flex justify-content-center m-3">
         
 
-        <button [disabled]="checkAll()" (click)="Registrieren()" class="btn btn-primary">Register</button>
+        <button  (click)="Registrieren()" class="btn btn-primary">Register</button>
     </div>
 
  </div>
